@@ -1,1 +1,3 @@
-# light-node
+# Light Node
+
+The lightest lightning node.
