@@ -1,4 +1,14 @@
 steps:
+
   # build
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'light-node-image', '.']
+
+  # Tag
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'light-node-image gcr.io/lightnode-331313/light-node']
+
+
+  # Push
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/lightnode-331313/light-node']
