@@ -8,7 +8,11 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['tag', 'light-node-image', 'gcr.io/$PROJECT_ID/light-node']
 
-
   # Push
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/light-node']
+
+  # Deploy
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'light-node', '--image', 'gcr.io/$PROJECT_ID/light-node', '--region', 'europe-west1']
