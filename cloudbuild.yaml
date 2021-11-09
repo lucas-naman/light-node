@@ -6,9 +6,9 @@ steps:
 
   # Tag
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'light-node-image', 'gcr.io/lightnode-331313/light-node']
+  args: ['tag', 'light-node-image', 'gcr.io/$PROJECT_ID/light-node']
 
 
   # Push
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/lightnode-331313/light-node']
+  args: ['push', 'gcr.io/$PROJECT_ID/light-node']
