@@ -1,0 +1,4 @@
+steps:
+  # build
+  - name: 'gcr.io/cloud-builder/docker'
+  - args: ['build', '-t', 'light-node-image', '.']
