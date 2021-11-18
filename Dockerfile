@@ -6,8 +6,8 @@ RUN git checkout 217019a
 RUN make install tags="autopilotrpc chainrpc invoicesrpc routerrpc signrpc walletrpc watchtowerrpc wtclientrpc"
 
 COPY lnd.conf .
-RUN echo $CERT >> tls.cert
-RUN echo $KEY >> tls.key
+COPY tls.key .
+COPY tls.cert .
 
 EXPOSE 10009
 CMD ["lnd", "--lnddir=."]

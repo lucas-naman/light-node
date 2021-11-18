@@ -3,9 +3,6 @@ steps:
   # build
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'light-node-image', '.']
-  env:
-    - 'CERT=${_CERT}'
-    - 'KEY=${_KEY}'
 
   # Tag
 - name: 'gcr.io/cloud-builders/docker'
