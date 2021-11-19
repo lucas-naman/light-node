@@ -1,13 +1,12 @@
 FROM golang:1.17
-WORKDIR /app
+WORKDIR /root
 RUN git clone https://github.com/lightningnetwork/lnd
-WORKDIR /app/lnd
-RUN git checkout 217019a
+RUN mv lnd .lnd
+WORKDIR /root/.lnd
+RUN git checkout 86114c5
 RUN make install tags="autopilotrpc chainrpc invoicesrpc routerrpc signrpc walletrpc watchtowerrpc wtclientrpc"
 
 COPY lnd.conf .
-COPY tls.key .
-COPY tls.cert .
 
 EXPOSE 10009
-CMD ["lnd", "--lnddir=."]
+CMD ["lnd"]
